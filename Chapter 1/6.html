@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Separating : </p>
+    <p id="result1"></p>
+
+
+    <script>
+        'use strict'
+        function separating(a) {
+          var resul=''
+          for (var c = 0; c < a.length; c++) {
+              if (a[c].toUpperCase() === a[c]) {
+                resul = resul + ' ' + a[c];
+              } else {
+                resul = resul + a[c];
+              }
+          }
+          return resul;
+        }
+        var string = prompt('String:');
+        document.getElementById("result1").innerHTML = separating(string);
+    </script>
+
+</body>
+
+</html>
