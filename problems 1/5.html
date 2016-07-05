@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Random: </p>
+    <p id="result"></p>
+    <p>Transform: </p>
+    <p id="result1"></p>
+
+
+    <script>
+        'use strict'
+
+        function randomelemets() {
+            var result = '';
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            for (var i = 0; i < Math.floor(Math.random() * possible.length); i++)
+                result += possible[Math.floor(Math.random() * possible.length)];
+            return result;
+        }
+
+        function transform(a) {
+          var uppercase = 0;
+          var lowercase = 0;
+          var resul=''
+          for (var c = 0; c < a.length; c++) {
+              if (a[c].toUpperCase() === a[c]) {
+                  ++uppercase;
+              } else {
+                  ++lowercase;
+              }
+          }
+          if (uppercase > lowercase){
+            resul=a.toUpperCase();
+          } else {
+            resul=a.toLowerCase();
+          }
+          return resul;
+        }
+        var res=randomelemets()
+        document.getElementById("result").innerHTML = res;
+        document.getElementById("result1").innerHTML = transform(res);
+
+    </script>
+
+</body>
+
+</html>
