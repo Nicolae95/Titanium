@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Result for 123</p>
+<p id="result"></p>
+<p>Result for 123.5</p>
+<p id="result2"></p>
+
+
+<script>
+'use strict'
+function isInit(a) {
+    return a % 1 === 0;
+}
+document.getElementById("result").innerHTML = isInit(123);
+document.getElementById("result2").innerHTML = isInit(123.5);
+</script>
+
+</body>
+</html>
