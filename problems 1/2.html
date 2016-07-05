@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Result for 'qwerty'</p>
+<p id="result"></p>
+<p>Result for 123</p>
+<p id="result1"></p>
+<p>Result for '123.5</p>
+<p id="result2"></p>
+
+<script>
+'use strict'
+function reverse(a) {
+  var rev = '';
+  if (isNaN(a)==false){
+    a=a.toString();
+    for (var i = a.length - 1; i >= 0; i--)
+      rev += a[i];
+  }else{
+    for (var i = a.length - 1; i >= 0; i--)
+      rev += a[i];
+  }
+  return rev;
+
+}
+document.getElementById("result").innerHTML = reverse('qwerty');
+document.getElementById("result1").innerHTML = reverse(123);
+document.getElementById("result2").innerHTML = reverse(123.5);
+</script>
+
+</body>
+</html>
