@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Sum: </p>
+
+    <p id="result"></p>
+
+    <script>
+        'use strict'
+
+        function sum(a) {
+          var total=0;
+          a = a.toString();
+          for (var c = 0; c < a.length; c++) {
+            total += +a[c];
+          }
+          return total;
+        }
+        console.log(sum(1434));
+        document.getElementById("result").innerHTML = sum(1434);
+    </script>
+
+</body>
+
+</html>
