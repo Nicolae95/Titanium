@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Counting: </p>
+
+    <p id="result"></p>
+
+    <script>
+        'use strict'
+
+        function count(str) {
+          var nr=1;
+          for (var c = 0; c < (str.length-1); c++) {
+            if (str[c] === ' '){
+              nr += 1;
+            }
+          }
+          return nr;
+        }
+        document.getElementById("result").innerHTML = count('you shall not pass');
+    </script>
+
+</body>
+
+</html>
