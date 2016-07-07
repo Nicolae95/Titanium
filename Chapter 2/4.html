@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Result: </p>
+
+    <p id="result"></p>
+
+    <script>
+        'use strict'
+
+        function count(a) {
+          var result = [];
+
+          for (var c = 0; c < (a.length); c++) {
+            var resul ='';
+            for (var i = 0; i < a[c].length; i++) {
+                if (a[c][i].toUpperCase() === a[c][i]) {
+                  resul = resul + ' ' + a[c][i].toLowerCase();
+                } else {
+                  resul = resul + a[c][i];
+                }
+            }
+            result.push(resul);
+          }
+          return result;
+        }
+        console.log(count(['daNE', 'getElementById', 'MobileNetwork']));
+        document.getElementById("result").innerHTML = count(['daNE', 'getElementById', 'MobileNetwork']);
+    </script>
+
+</body>
+
+</html>
