@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Result: </p>
+
+    <p id="result"></p>
+
+    <script>
+        'use strict'
+
+        function count(a) {
+          var result = [];
+          var uppercase = 0;
+          var lowercase = 0;
+
+          for (var c = 0; c < (a.length); c++) {
+            for (var i = 0; i < a[c].length; i++) {
+                if (a[c][i].toUpperCase() === a[c][i]) {
+                    ++uppercase;
+                } else {
+                    ++lowercase;
+                }
+            }
+            if (uppercase > lowercase){
+              result.push(a[c].toUpperCase());
+            } else {
+              result.push(a[c].toLowerCase());
+            }
+          }
+          return result;
+        }
+        document.getElementById("result").innerHTML = count(['ABc', 'ABcd', 'Abcd']);
+    </script>
+
+</body>
+
+</html>
