@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Count: </p>
+
+    <p id="result"></p>
+
+    <script>
+        'use strict'
+
+        function count(a) {
+          var result = '';
+          var s =0
+          var res = a.split(' ');
+          for (var c = 0; c < (res.length); c++) {
+              if (res[c].indexOf('alo') === 0){
+                result = result +' '+ res[c]
+              }
+          }
+          return result;
+        }
+        console.log(count('dada aloblya nene aloha aga'));
+        document.getElementById("result").innerHTML = count('dada aloblya nene aloha aga');
+    </script>
+
+</body>
+
+</html>
