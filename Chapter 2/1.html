@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Reverse</p>
+    <p id="result"></p>
+
+
+    <script>
+        'use strict'
+
+        function reverse(a) {
+            var rev = [];
+            for (var i = a.length - 1; i >= 0; i--)
+                rev.push(a[i]);
+
+            return rev;
+
+        }
+        document.getElementById("result").innerHTML = reverse([1,2,3,4,5,6]);
+
+    </script>
+
+</body>
+
+</html>
