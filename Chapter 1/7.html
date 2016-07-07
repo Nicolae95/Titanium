@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Sum </p>
+    <p>2020</p
+    <p>20</p>
+    <p id="result"></p>
+
+    <script>
+        'use strict'
+
+        function reverse(a) {
+            var rev = '';
+            if (isNaN(a) == false) {
+                a = a.toString();
+                for (var i = a.length - 1; i >= 0; i--)
+                    rev += a[i];
+            } else {
+                for (var i = a.length - 1; i >= 0; i--)
+                    rev += a[i];
+            }
+            return rev;
+        }
+
+        function sum(a, b) {
+            var x, y;
+            var result, result1;
+            var fresult = '';
+            var le;
+            if (a.length > b.length){
+              le = a.length;
+              b = +b + Math.pow(10,le);
+              b = b.toString();
+              b = b.slice(1,b.length);
+            } else {
+              le = b.length;
+              a = +a + Math.pow(10,le);
+              a = a.toString();
+              a = a.slice(1,a.length);
+            }
+            x = reverse(a);
+            y = reverse(b);
+            var s = 0;
+            for (var c = 0; c < (le); c++) {
+              result = +x[c] + +y[c];
+              result1 = result + s;
+              fresult += result1.toString();
+              if (result > 9){
+                s = 1;
+              } else {
+                s = 0;
+              }
+            }
+            return reverse(fresult);
+        }
+
+
+        console.log(sum('2020', '20'));
+
+        document.getElementById("result").innerHTML = sum('2020', '20');
+    </script>
+
+</body>
+
+</html>
