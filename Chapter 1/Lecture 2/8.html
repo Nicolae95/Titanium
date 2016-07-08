@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Values</p>
+    <p id="result"></p>
+
+
+    <script>
+        'use strict'
+        // example of object:
+        var obj = [{
+            name: 'moisei',
+            text: 'blabla'
+        }, {
+            name: 'luka',
+            text: 'alo'
+        }, {
+            name: 'arhip',
+            text: 'iuh'
+        }, ];
+
+        function getValues(obj , text) {
+            var res = [];
+            for (var k in obj) {
+                res[k] = obj[k][text]
+            }
+            return res;
+        }
+        document.getElementById("result").innerHTML = getValues(obj , 'text');
+    </script>
+
+</body>
+
+</html>
