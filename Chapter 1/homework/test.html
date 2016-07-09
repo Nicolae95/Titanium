@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <script>
+        'use strict'
+
+        var l = [1,2,3,6];
+        var o = {one : 11, two : 20, three : 31, four : 40};
+        var ob = [{one : 11, two : 20, three : 31}, {one : 12, two : 22, three : 31}];
+        var stooges = [{name : 'moe', age : 40}, {name : 'moe', age : 50}, {name : 'curly', age : 60}];
+
+        function each(list, iterator) {
+            if (Array.isArray(list)) {
+                for (var c = 0; c < list.length; c++) {
+                    iterator(list[c], c, list);
+                }
+            } else {
+                for (var k in list) {
+                    iterator(list[k], k, list);
+                }
+            }
+        }
+
+        function map(list, iterator) {
+            var r = [];
+            if (Array.isArray(list)) {
+                for (var c = 0; c < list.length; c++) {
+                    r.push(iterator(list[c], c, list));
+                }
+            } else {
+                for (var k in list) {
+                    r.push(iterator(list[k], k, list));
+                }
+            }
+            return r;
+        }
+
+        function find(list, iterator) {
+            var r;
+            if (Array.isArray(list)) {
+                for (var c = 0; c < list.length; c++) {
+                    if (iterator(list[c])) {
+                        r = list[c];
+                    }
+                }
+            } else {
+                for (var k in list) {
+                    if (iterator(list[k])) {
+                        r = list[k];
+                    }
+                }
+            }
+            return r;
+        }
+
+        function filter(list, iterator){
+            var r = [];
+            if (Array.isArray(list)) {
+                for (var c = 0; c < list.length; c++) {
+                    if (iterator(list[c])) {
+                        r.push(list[c]);
+                    }
+                }
+            } else {
+                for (var k in list) {
+                    if (iterator(list[k])) {
+                        r.push(list[k]);
+                    }
+                }
+            }
+            return r;
+        }
+
+        function where(obj, properties) {
+            var r = [];
+            for (var c = 0; c < obj.length; c++) {
+                for (var k in obj[c]) {
+                    if (obj[c][k] === properties[k]){
+                        r.push(obj[c]);
+                    }
+                }
+            }
+            return r;
+        }
+
+        function findWhere(obj, properties) {
+            var r = {};
+            for (var c = 0; c < obj.length; c++) {
+                for (var k in obj[c]) {
+                    if (obj[c][k] === properties[k]){
+                        r = obj[c];
+                    }
+                }
+            }
+            return r;
+        }
+
+        function contains(list, value) {
+            var bool = false;
+            if (Array.isArray(list)) {
+                if ((list.indexOf(value) === -1)) {
+                    bool = false;
+                } else {
+                    bool = true;
+                }
+
+            } else {
+                for (var k in list) {
+                    if (list[k] === value) { bool = true;}
+                }
+            }
+            return bool;
+        }
+
+        function pluck(obj , text) {
+            var res = [];
+            for (var c = 0; c < obj.length; c++) {
+                for (var k in obj[c]) {
+                    if (k === text){
+                        res.push(obj[c][k])
+                    }
+                }
+            }
+            return res;
+        }
+
+        function values(obj) {
+            var res = [];
+            for (var k in obj) {
+                res.push(obj[k]);
+            }
+            return res;
+        }
+
+
+        console.log(each(l,function(num){ alert(num); }));
+        console.log(each(o,function(num, key){ alert(key+":"+num); }));
+        console.log(each(l, function(num){ alert(num*3); }));
+        console.log(each(o,function(num, key){ alert(num*3); }));
+        console.log(find(l, function(num){ return num % 2 == 0; }));
+        console.log(find(o,function(num){ return num % 2 == 0; }));
+        console.log(filter(l, function(num){ return num % 2 == 0; }));
+        console.log(filter(o,function(num){ return num % 2 == 0; }));
+        console.log(where(stooges,{name : 'moe'}));
+        console.log(findWhere(stooges,{name : 'moe'}));
+        console.log(contains([1,2,7,6], 2));
+        console.log(pluck(stooges, 'name'));
+        console.log(values(o));
+    </script>
+
+</body>
+
+</html>
