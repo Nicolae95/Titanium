@@ -122,7 +122,7 @@
             }
         }
         return r;
-    }
+    };
 
     window._ = obj;
 })();
