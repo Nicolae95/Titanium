@@ -90,19 +90,20 @@
         }
 
         function findWhere(obj, properties) {
-            var r = {};
-            var bool = false;
+            var r = [];
             for (var c = 0; c < obj.length; c++) {
+                var bool = true;
                 for (var k in properties) {
-                    if (obj[c][k] === properties[k]){
-                        bool = true ;
-                    } else if (obj[c][k] !== properties[k]) {
+                    if (obj[c][k] !== properties[k]) {
                         bool = false;
                     }
                 }
-                if (bool) {r = obj[c]};
+                if (bool) {
+                    r.push(obj[c]);
+                    return r;
+                }
             }
-            return r;
+
         }
 
         function contains(list, value) {
