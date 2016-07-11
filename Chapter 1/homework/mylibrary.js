@@ -113,7 +113,7 @@
                 if (bool) r.push(obj[c]);
             }
             return r;
-        }
+        };
 
     obj.findWhere = function findWhere(obj, properties) {
             var r = [];
@@ -130,7 +130,7 @@
                 }
             }
 
-        }
+        };
 
     window._ = obj;
 })();
