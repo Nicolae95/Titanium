@@ -75,12 +75,10 @@
 
         function where(obj, properties) {
             var r = [];
-            var bool = false;
             for (var c = 0; c < obj.length; c++) {
+                var bool = true;
                 for (var k in properties) {
-                    if (obj[c][k] === properties[k]){
-                        bool = true ;
-                    } else if (obj[c][k] !== properties[k]) {
+                    if (obj[c][k] !== properties[k]) {
                         bool = false;
                     }
                 }

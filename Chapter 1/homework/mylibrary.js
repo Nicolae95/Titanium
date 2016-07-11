@@ -101,20 +101,19 @@
     };
 
     obj.where = function where(obj, properties) {
-        var r = [];
-        var bool = false;
-        for (var c = 0; c < obj.length; c++) {
-            for (var k in properties) {
-                if (obj[c][k] === properties[k]){
-                    bool = true ;
-                } else if (obj[c][k] !== properties[k]) {
-                    bool = false;
+            var r = [];
+
+            for (var c = 0; c < obj.length; c++) {
+                var bool = true;
+                for (var k in properties) {
+                    if (obj[c][k] !== properties[k]) {
+                        bool = false;
+                    }
                 }
+                if (bool) r.push(obj[c]);
             }
-            if (bool) r.push(obj[c]);
+            return r;
         }
-        return r;
-    };
 
     obj.findWhere = function findWhere(obj, properties) {
             var r = [];
