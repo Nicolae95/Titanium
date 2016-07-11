@@ -9,7 +9,7 @@
         var l = [1,2,3,6];
         var o = {one : 11, two : 20, three : 31, four : 40};
         var ob = [{one : 11, two : 20, three : 31}, {one : 12, two : 22, three : 31}];
-        var stooges = [{name : 'moe', age : 40}, {name : 'moe', age : 50}, {name : 'curly', age : 60}];
+        var stooges = [{name : 'moe', age : 40}, {name : 'moe', age : 40}, {name : 'curly', age : 60}];
 
         function each(list, iterator) {
             if (Array.isArray(list)) {
@@ -75,24 +75,32 @@
 
         function where(obj, properties) {
             var r = [];
+            var bool = false;
             for (var c = 0; c < obj.length; c++) {
-                for (var k in obj[c]) {
+                for (var k in properties) {
                     if (obj[c][k] === properties[k]){
-                        r.push(obj[c]);
+                        bool = true ;
+                    } else if (obj[c][k] !== properties[k]) {
+                        bool = false;
                     }
                 }
+                if (bool) r.push(obj[c]);
             }
             return r;
         }
 
         function findWhere(obj, properties) {
             var r = {};
+            var bool = false;
             for (var c = 0; c < obj.length; c++) {
-                for (var k in obj[c]) {
+                for (var k in properties) {
                     if (obj[c][k] === properties[k]){
-                        r = obj[c];
+                        bool = true ;
+                    } else if (obj[c][k] !== properties[k]) {
+                        bool = false;
                     }
                 }
+                if (bool) {r = obj[c]};
             }
             return r;
         }
@@ -119,7 +127,7 @@
             for (var c = 0; c < obj.length; c++) {
                 for (var k in obj[c]) {
                     if (k === text){
-                        res.push(obj[c][k])
+                        res.push(obj[c][k]);
                     }
                 }
             }
@@ -135,19 +143,19 @@
         }
 
 
-        console.log(each(l,function(num){ alert(num); }));
-        console.log(each(o,function(num, key){ alert(key+":"+num); }));
-        console.log(each(l, function(num){ alert(num*3); }));
-        console.log(each(o,function(num, key){ alert(num*3); }));
-        console.log(find(l, function(num){ return num % 2 == 0; }));
-        console.log(find(o,function(num){ return num % 2 == 0; }));
-        console.log(filter(l, function(num){ return num % 2 == 0; }));
-        console.log(filter(o,function(num){ return num % 2 == 0; }));
-        console.log(where(stooges,{name : 'moe'}));
-        console.log(findWhere(stooges,{name : 'moe'}));
-        console.log(contains([1,2,7,6], 2));
-        console.log(pluck(stooges, 'name'));
-        console.log(values(o));
+        //console.log(each(l,function(num){ alert(num); }));
+        //console.log(each(o,function(num, key){ alert(key+":"+num); }));
+        //console.log(each(l, function(num){ alert(num*3); }));
+        //console.log(each(o,function(num, key){ alert(num*3); }));
+        //console.log(find(l, function(num){ return num % 2 == 0; }));
+        //console.log(find(o,function(num){ return num % 2 == 0; }));
+        //console.log(filter(l, function(num){ return num % 2 == 0; }));
+        //console.log(filter(o,function(num){ return num % 2 == 0; }));
+        console.log(where(stooges,{name : 'moe', age : 40}));
+        console.log(findWhere(stooges,{name : 'moe', age : 20}));
+        //console.log(contains([1,2,7,6], 2));
+        //console.log(pluck(stooges, 'name'));
+        //console.log(values(o));
     </script>
 
 </body>

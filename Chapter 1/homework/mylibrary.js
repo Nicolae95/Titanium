@@ -102,27 +102,35 @@
 
     obj.where = function where(obj, properties) {
         var r = [];
+        var bool = false;
         for (var c = 0; c < obj.length; c++) {
-            for (var k in obj[c]) {
+            for (var k in properties) {
                 if (obj[c][k] === properties[k]){
-                    r.push(obj[c]);
+                    bool = true ;
+                } else if (obj[c][k] !== properties[k]) {
+                    bool = false;
                 }
             }
+            if (bool) r.push(obj[c]);
         }
         return r;
     };
 
     obj.findWhere = function findWhere(obj, properties) {
         var r = {};
+        var bool = false;
         for (var c = 0; c < obj.length; c++) {
-            for (var k in obj[c]) {
+            for (var k in properties) {
                 if (obj[c][k] === properties[k]){
-                    r = obj[c];
+                    bool = true ;
+                } else if (obj[c][k] !== properties[k]) {
+                    bool = false;
                 }
             }
+            if (bool) {r = obj[c]};
         }
         return r;
-    };
+    }
 
     window._ = obj;
 })();
