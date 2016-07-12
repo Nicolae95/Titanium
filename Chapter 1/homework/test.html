@@ -141,6 +141,22 @@
             return res;
         }
 
+        function without() {
+            var l = arguments[0].length;
+            var array = arguments[0];
+            var newarray = [];
+            for (var i = 0; i < l; i++) {
+                for (var c = 1; c < arguments.length; c++) {
+                    if(array[i] === arguments[c]) {
+                        array.splice(i, 1);
+                    }
+                }
+            }
+            for (var q = 0; q < (array.length); q++) {
+                newarray.push(array[q]);
+            }
+            return newarray;
+        }
 
         //console.log(each(l,function(num){ alert(num); }));
         //console.log(each(o,function(num, key){ alert(key+":"+num); }));
@@ -150,11 +166,12 @@
         //console.log(find(o,function(num){ return num % 2 == 0; }));
         //console.log(filter(l, function(num){ return num % 2 == 0; }));
         //console.log(filter(o,function(num){ return num % 2 == 0; }));
-        console.log(where(stooges,{name : 'moe', age : 40}));
-        console.log(findWhere(stooges,{name : 'moe', age : 20}));
+        //console.log(where(stooges,{name : 'moe', age : 40}));
+        //console.log(findWhere(stooges,{name : 'moe', age : 20}));
         //console.log(contains([1,2,7,6], 2));
         //console.log(pluck(stooges, 'name'));
         //console.log(values(o));
+        console.log(without([1,2,4,5,6,2,4], 2,4,5));
     </script>
 
 </body>

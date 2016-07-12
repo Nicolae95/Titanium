@@ -132,5 +132,22 @@
 
         };
 
+        obj.without = function without() {
+            var l = arguments[0].length;
+            var array = arguments[0];
+            var newarray = [];
+            for (var i = 0; i < l; i++) {
+                for (var c = 1; c < arguments.length; c++) {
+                    if(array[i] === arguments[c]) {
+                        array.splice(i, 1);
+                    }
+                }
+            }
+            for (var q = 0; q < (array.length); q++) {
+                newarray.push(array[q]);
+            }
+            return newarray;
+        };
+
     window._ = obj;
 })();
