@@ -1,8 +1,6 @@
 'use strict'
 
-
-
-        function get(url, succes, error) {
+        function get(url, succes) {
             var xhttp = new XMLHttpRequest();
             xhttp.open('GET', url, true);
             xhttp.send();
@@ -10,30 +8,27 @@
                 if (xhttp.readyState === 4) {
                     if (xhttp.status === 200) {
                         succes(xhttp.responseText);
-                        } else {
-                        error();
-                    }
+                        //console.log(succes(xhttp.responseText));
+                        }
                 }
 
             };
         }
 
-        function gett(url) {
+        function gettpl(url, succes) {
             var xhttp = new XMLHttpRequest();
             xhttp.open('GET', url, true);
             xhttp.send();
             xhttp.onreadystatechange = function() {
                 if (xhttp.readyState === 4) {
                     if (xhttp.status === 200) {
-                        return JSON.stringify(xhttp.responseText);
-                        } else {
-                        return alert('Error')
-                    }
+                        succes(xhttp.responseText);
+                        }
                 }
             }
         }
 
-        function post(url, app) {
+        function post(url, app, success) {
             var xhttp = new XMLHttpRequest();
             var json = JSON.stringify(app);
             xhttp.open('POST', url, true);
@@ -41,15 +36,13 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4) {
                     if (this.status === 200) {
-                        return JSON.parse(xhttp.responseText);
-                        } else {
-                        return alert('Error')
-                    }
+                        success(xhttp.responseText);
+                        }
                 }
             }
         }
 
-        function deleteO(url, id, success, error) {
+        function deleteO(url, id, success) {
             var xhttp = new XMLHttpRequest();
             var json = JSON.stringify(id);
             xhttp.open('DELETE', url, true);
@@ -57,16 +50,13 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4) {
                     if (this.status === 200) {
-                        success();
-                        } else {
-                        error();
-                    }
+                        success(xhttp.responseText);
+                        }
                 }
             }
-            return JSON.parse(xhttp.responseText);
         }
 
-        function update(url, id, success, error) {
+        function update(url, id, success) {
             var xhttp = new XMLHttpRequest();
             var json = JSON.stringify(id);
             xhttp.open('PUT', url, true);
@@ -74,11 +64,8 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4) {
                     if (this.status === 200) {
-                        success();
-                        } else {
-                        error();
-                    }
+                        success(xhttp.responseText);
+                        }
                 }
             }
-            return JSON.parse(xhttp.responseText);
         }

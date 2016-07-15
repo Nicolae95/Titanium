@@ -1,33 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="js/tplclass.js" charset="utf-8"></script>
     <script src="js/requests.js" charset="utf-8"></script>
+    <script src="js/modules/_.js" charset="utf-8"></script>
+    <script src="js/modules/reg.js" charset="utf-8"></script>
+    <script src="js/modules/tplclass.js" charset="utf-8"></script>
+    <script src="js/index.js" charset="utf-8"></script>
 </head>
 <body>
-    <div id=result></div>
-
-
-
-<script>
-'use strict'
-
-        function success(){
-            return console.log('Good');
-        }
-        function error(){
-            return console.log('Error');
-        }
-
-
-        console.log(get('http://localhost:3333/entry/'));
-
-        console.log(gett('http://127.0.0.1:8080/tpl.html'));
-
-        var newtpl = MyClass(get('http://localhost:3333/entry/'), gett('http://127.0.0.1:8080/tpl.html'));
-
-        document.getElementById("result").innerHTML = tewtpl.getTpl();
-</script>
-
+    <div id=results></div>
 </body>
 </html>
