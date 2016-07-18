@@ -5,41 +5,17 @@
     <script src="js/modules/_.js" charset="utf-8"></script>
     <script src="js/modules/reg.js" charset="utf-8"></script>
     <script src="js/modules/tplclass.js" charset="utf-8"></script>
+    <script src="js/add.js" charset="utf-8"></script>
 </head>
 <body>
 
-    <div id='add'>
-        <form action="#">
+    <div id="add">
+        <form>
             Name:<br><input type="text" name=author id="author" value=""><br>
             Title:<br><input type="text" id="title" value=""><br>
             Text:<br><input type="text" id="text" value=""><br><br>
-            <input type="submit" onClick="sentdata(this.form)" value="Submit">
+            <input type="button" onclick="sentdata()" value="Submit">
         </form>
     </div>
-
-    <script>
-    function sentdata(form){
-        var author = document.getElementById('author').value;
-        var title = document.getElementById('title').value;
-        var text = document.getElementById('text').value;
-        return {
-            "Author": author,
-            "Title": title,
-            "Text": text,
-        }
-    }
-    console.log(sentdata());
-
-    var newdata;
-
-    function setNew(c) {
-        newdata = c;
-    };
-
-    post('http://localhost:3333/entry/', sentdata(), setNew);
-
-    //console.log(post('http://localhost:3333/entry/', sentdata(), setNew));
-    </script>
-
 </body>
 </html>
