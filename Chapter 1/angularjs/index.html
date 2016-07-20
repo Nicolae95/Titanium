@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="data">
+<head>
+    <link rel=stylesheet href="css/app.css" type="text/css">
+    <script src="js/modules/angular.min.js" charset="utf-8"></script>
+    <script src="js/controllers/datacontroller.js" charset="utf-8"></script>
+</head>
+<body>
+        <div data-ng-controller="DataController" id="results">
+        Search by Author : <input type="text" data-ng-model="Author">
+        <br>
+            <div data-ng-repeat='data in alldata | filter:name'>
+                <h2 class="green">{{data.Title}}</h2>
+                <div>{{data.Author}}</div>
+                <div>{{data.Text}}</div>
+           </div>
+    </div>
+</body>
+</html>
