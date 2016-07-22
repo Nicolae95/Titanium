@@ -1,9 +1,13 @@
-<div id="results">
-    <form role="form" ng-submit="editdata()">
-        Title   <br><input type="text" name="name" class="form-control" data-ng-model="formData.Title">
-        Author  <br><input type="text" name="name" class="form-control" data-ng-model="formData.Author">
-        Text    <br><input type="text" name="name" class="form-control" data-ng-model="formData.Text"><br>
-        <input type="submit" value="Submit" class="btn btn-primary">
-    </form>
-    {{message}}
+<div id="results"><h2>Edit Data</h2>
+   <input type="hidden" data-ng-model="newdata.EntryId" />
+   <b>Title:</b>
+   <input type="text" name="Title" id="Title" ng-model="newdata.Title" placeholder="Title" required />
+   <b>Author:</b>
+   <input type="text" name="Author" id="Author" ng-model="newdata.Author" placeholder="Author" required />
+   <b>Text:</b>
+   <input type="text" name="Text" id="Text" ng-model="newdata.Text" placeholder="Text" required />
+   <br />
+   <input type="button" value="Update" ng-show="DisplayUpdate" data-ng-click="updatedata()" />
+   <br />
+   <p>{{status}}</p>
 </div>

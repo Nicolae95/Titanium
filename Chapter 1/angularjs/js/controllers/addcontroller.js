@@ -7,7 +7,7 @@
             $scope.adddata = function(){
                 var res = $http.post('http://localhost:3333/entry/', JSON.stringify($scope.formData));
                 res.success(function(data, status, headers, config) {
-                    $scope.message ='Succes';
+                    $scope.message ='The article is added to database !!!';
                 });
                 res.error(function(data, status, headers, config) {
                     alert("failure message");

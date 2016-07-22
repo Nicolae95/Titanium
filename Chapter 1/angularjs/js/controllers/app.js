@@ -7,19 +7,14 @@ data.config(function($stateProvider) {
                 templateUrl : '/temp/main.html',
                 controller  : 'MainCtrl'
             })
-            .state('edit', {
-                url: "/edit",
-                templateUrl : '/temp/edit.html',
-                controller  : 'EditCtrl'
-            })
             .state('add', {
                 url: "/add",
                 templateUrl : '/temp/add.html',
                 controller  : 'AddCtrl'
             })
             .state('detail', {
-                url: "/detail{detailId}",
-                templateUrl : '/temp/add.html',
-                controller  : 'AddCtrl'
+                url: "/detail/:EntryId",
+                templateUrl : '/temp/detail.html',
+                controller  : 'DetailCtrl'
             })
     });

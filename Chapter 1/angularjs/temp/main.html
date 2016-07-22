@@ -1,10 +1,26 @@
+
+<div id="results" ng-show="DisplayUpdate"><h2>Edit Article</h2>
+   <input type="hidden" data-ng-model="newdata.EntryId" />
+   <b>Title:</b>
+   <input type="text" name="Title" id="Title" ng-model="newdata.Title" placeholder="Title" required />
+   <b>Author:</b>
+   <input type="text" name="Author" id="Author" ng-model="newdata.Author" placeholder="Author" required />
+   <b>Text:</b>
+   <input type="text" name="Text" id="Text" ng-model="newdata.Text" placeholder="Text" required />
+   <br />
+   <input type="button" value="Update" data-ng-click="updatedata()" />
+   <br />
+   <p>{{status}}</p>
+</div>
+
 <div id="results">
 Search by Author : <input type="text" data-ng-model="Author">
 <br>
     <div data-ng-repeat='data in alldata | filter:Author'>
-        <h2 class="blue">{{data.Title}}</h2>
+        <h2 class="blue"><a href="/#/detail/{{data.EntryId}}">{{data.Title}}</a></h2>
         <div>{{data.Author}}</div>
         <div>{{data.Text}}</div>
-        <div><a class="green" ng-click="edit('{{data.EntryId}}')">Edit</a><a class="red" ng-click="deletedata('{{data.EntryId}}')"> Delete</a></div>
+        <div id="ids" type="hidden" data-id = "data.EntryId"/>
+        <div><a class="green" ng-click="editdata(data.EntryId)">Edit</a><a class="red" ng-click="deletedata(data.EntryId)"> Delete</a></div>
    </div>
 </div>
