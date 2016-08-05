@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="data">
+<head>
+    <link rel=stylesheet href="css/app.css" type="text/css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Blog</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref="home">Home</a>
+                <li><a ui-sref="registration">Registration</a>
+                <li><a ui-sref="login">Login</a>
+            </ul>
+        </div>
+        </nav>
+    </header>
+
+    <div ui-view></div>
+
+    <script src="js/modules/angular.js" charset="utf-8"></script>
+    <script src="js/modules/angular-ui-router.js" charset="utf-8"></script>
+    <script src="js/modules/dirPagination.js" charset="utf-8"></script>
+    <script src="js/controllers/app.js" charset="utf-8"></script>
+    <script src="js/controllers/datacontroller.js" charset="utf-8"></script>
+    <script src="js/controllers/addcontroller.js" charset="utf-8"></script>
+    <script src="js/controllers/detailcontroller.js" charset="utf-8"></script>
+    <script src="js/controllers/editcontroller.js" charset="utf-8"></script>
+    <script src="js/controllers/logincontroller.js" charset="utf-8"></script>
+</body>
+</html>

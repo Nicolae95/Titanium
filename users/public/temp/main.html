@@ -1,0 +1,12 @@
+<div id="results">
+Search by Login : <input type="text" data-ng-model="Author">
+<br>
+    <div class="element" dir-paginate='data in alldata | filter:Author | itemsPerPage: 3'>
+        <h2 class="blue"><a href="/#/detail/{{data.id}}">{{data.login}}</a></h2>
+        <div>First Name : <i>{{data.first_name}}</i></div>
+        <div>Last Name : <i>{{data.last_name}}</i></div>
+        <div>Password : <i>{{data.pass}}</i></div>
+        <div><a class="green" href="/#/edit/{{data.id}}">Edit</a><a class="red" ng-click="deletedata(data.id)"> Delete</a></div>
+   </div>
+   <dir-pagination-controls></dir-pagination-controls>
+</div>
